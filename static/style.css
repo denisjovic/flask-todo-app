@@ -1,3 +1,23 @@
 body {
-    font-family: monospace;
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0 3vh 0 3vh;
+}
+
+nav {
+    margin: 5vh 0vh 15vh 0vh;
+}
+
+button > a, button > a:hover {
+    text-decoration: none !important;
+    color: white !important;
+}
+
+h1 {
+ font-weight: bold;
+ font-size: 1.5rem;
+ font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+#form {
+    margin-top: 10vh;
 }

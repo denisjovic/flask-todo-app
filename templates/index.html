@@ -6,31 +6,42 @@
 
 {% block body %}
 
-<div class="content">
+<div>
+    <nav class="text-center">
     <h1>Task master</h1>
+    </nav>
     {% if tasks|length < 1 %}
-    <h3>No tasks, enjoy your day or add one below!</h3>
+    <h3 class="text-center">No tasks, enjoy your day or add one below!</h3>
     {% else %}
-    {% for task in tasks %}
-    <table>
+    <table class="table table-striped">
+        <thead class="thead-dark">
         <tr>
             <th>Task</th>
             <th>Added</th>
             <th>Actions</th>
         </tr>
+        </thead>
+        {% for task in tasks %}
         <tr>
             <td>{{ task.content }}</td>
             <td>{{ task.date_created.date() }}</td>
-            <td><a href="/delete/{{task.id}}">Delete</a></td>
-            <td><a href="/update/{{task.id}}">Update</a></td>
+            <td><a href="/delete/{{task.id}}"><i class="far fa-trash-alt"></i><small> delete</small>
+
+            </a>
+                <br>
+            <a href="/update/{{task.id}}"><i class="fas fa-pen-alt"></i><small> edit</small>
+
+            </a></td>
         </tr>
+        {% endfor %}
     </table>
-    {% endfor %}
     {% endif %}
 
-    <form action="/" method="POST">
-        <input type="text" name="content" id="content" required>
-        <input type="submit" value="Add task">
+    <form action="/" method="POST" class="text-center" id="form">
+        <input class="form-control mb-3" type="text" name="content" id="content" required>
+        <button class="btn btn-primary" type="submit">
+            Add task <i class="fas fa-plus-circle"></i>
+        </button>
     </form>
 </div>
 
